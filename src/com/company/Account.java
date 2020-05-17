@@ -13,12 +13,8 @@ public class Account
         this.accountnumber = accountnumber;
         this.ibannumber = ibannumber;
     }
-
-
-
-    public void eftTransaction(Account otheraccount, int mount)
+    public boolean eftTransaction(Account otheraccount, int mount)
     { // balancecheck metodu bakiyenin minimum bakiyeden büyük mü ona bakıyor
-
         if(balanceCheck() && balance>=mount)
         {//eft yapılacak hesabın bakiyesi alınıyor
             int otheraccountbalance=otheraccount.getBalance();
@@ -27,14 +23,14 @@ public class Account
             this.balance-=mount;
             // gönderininkinden de düşüyor
             otheraccount.setBalance(otheraccountbalance);
-
+            return true;
         }else
             {
-                System.out.println("lütfen bakiyenizi kontrol ediniz... ");
+                System.out.println(" işlem başarısız lütfen bakiyenizi kontrol ediniz... ");
+                return false;
             }
-
     }
-    public boolean balanceCheck()
+   private boolean balanceCheck()
     {
         if(balance>0 && balance>=minimumbalancelimit)
         {

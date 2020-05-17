@@ -133,6 +133,12 @@ public class User
             sayac++;
         }
     }
+    // gelen indexe göre hesap döndürülüyor
+    public Account getAccount(int index)
+    {
+        Account account=bankaccounts.get(index);
+        return account;
+    }
 
 
 

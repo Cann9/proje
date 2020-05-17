@@ -14,9 +14,6 @@ public class CreditCard
         minimumdebt=(totaldebt/100)*30;
         limit=5000;
     }
-
-
-
     public void payDebt(Account borcuödeyecekhesap, int ödenecektutar)
     {
         int ödenecekdebt=borcuödeyecekhesap.getBalance()-ödenecektutar;
