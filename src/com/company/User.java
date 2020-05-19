@@ -2,69 +2,58 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class User
-{
-    private String username;
-    private String usersurname;
-    private String customernumber;
-    private String useremailaddress;
+public class User {
+    private String name;
+    private String surname;
+    private String customerNumber;
+    private String email;
     private int password;
-    private String usertelephonenumber;
-    private ArrayList<Account> bankaccounts;
+    private String telephone;
+    private ArrayList<Account> bankAccounts;
     private ArrayList<CreditCard> creditCards;
-    //user's
-    //name, surname, customer number, e-mail address, password, telephone number and bank
-    //accounts (Account array)
 
 
-    public User(String username, String usersurname, String customernumber, String useremailaddress, int password, String usertelephonenumber) {
-        this.username = username;
-        this.usersurname = usersurname;
-        this.useremailaddress = useremailaddress;
+    public User(String name, String surname, String customerNumber, String email, int password, String telephone) {
+        this.name = name;
+        this.surname = surname;
+        this.customerNumber = customerNumber;
+        this.email = email;
         this.password = password;
-        this.usertelephonenumber = usertelephonenumber;
-        bankaccounts =new ArrayList<>();
-        creditCards=new ArrayList<>();
-        // müşteri numarasını kontrol ediliyor
-        if(customernumber.trim().length()==8)
-        {
-            this.customernumber = customernumber;
-        }else
-            {
-                System.out.println("müşteri numarası 8 haneli olmalı ");
-            }
+        this.telephone = telephone;
+        bankAccounts = new ArrayList<>();
+        creditCards = new ArrayList<>();
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUsersurname() {
-        return usersurname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setUsersurname(String usersurname) {
-        this.usersurname = usersurname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getCustomernumber() {
-        return customernumber;
+    public String getCustomerNumber() {
+        return customerNumber;
     }
 
-    public void setCustomernumber(String customernumber) {
-        this.customernumber = customernumber;
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
     }
 
-    public String getUseremailaddress() {
-        return useremailaddress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUseremailaddress(String useremailaddress) {
-        this.useremailaddress = useremailaddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getPassword() {
@@ -75,71 +64,79 @@ public class User
         this.password = password;
     }
 
-    public String getUsertelephonenumber() {
-        return usertelephonenumber;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setUsertelephonenumber(String usertelephonenumber) {
-        this.usertelephonenumber = usertelephonenumber;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
-// en fazla 5 tane hesap olacağı denetleniyor
-  public void addBankaccount(Account eklenecekhesap)
-  {
-      if(bankaccounts.size()<5)
-      {
-          bankaccounts.add(eklenecekhesap);
-      }else
-          {
-              System.out.println("ekleybeileceğiniz hesap limitine ulaştınız");
-          }
 
-  }
-  public void deleteBankaccount(Account silinecekhesap)
-  {
-      if(bankaccounts.size()>0)
-      {
-          bankaccounts.remove(silinecekhesap);
-      }
-      else
-          {
-              System.out.println("hesabınız yok");
-          }
+    public ArrayList<Account> getBankAccounts() {
+        return bankAccounts;
+    }
 
-  }
-  // en fazla 2 tane kredi kartı olacağı denetleniyor
-  public void addCreditcar(CreditCard eklencekcreditCard)
-  {
-      if( creditCards.size()<2)
-      {
-         creditCards.add(eklencekcreditCard);
-      }else
-          {
-              System.out.println("en fazla  2 tane kredi kartı ekleyebilirsiniz");
-          }
-  }
-  public void showBankAccount()
-  { int sayaç=1;
-      for(Account account:bankaccounts)
-      {
-          System.out.println(sayaç+" "+account.toString());
-          sayaç++;
-      }
-  }
-    public void showCredicard()
-    { int sayac=1;
-        for(CreditCard creditCardtemp:creditCards)
-        {
-            System.out.println(sayac+" "+creditCardtemp.toString());
+    public void setBankAccounts(ArrayList<Account> bankAccounts) {
+        this.bankAccounts = bankAccounts;
+    }
+
+    public ArrayList<CreditCard> getCreditCards() {
+        return creditCards;
+    }
+
+    public void setCreditCards(ArrayList<CreditCard> creditCards) {
+        this.creditCards = creditCards;
+    }
+
+    // en fazla 5 tane hesap olacağı denetleniyor
+    public void addBankaccount(Account eklenecekhesap) {
+        if (bankAccounts.size() < 5) {
+            bankAccounts.add(eklenecekhesap);
+        } else {
+            System.out.println("ekleybeileceğiniz hesap limitine ulaştınız");
+        }
+
+    }
+
+    public void deleteBankaccount(Account silinecekhesap) {
+        if (bankAccounts.size() > 0) {
+            bankAccounts.remove(silinecekhesap);
+        } else {
+            System.out.println("hesabınız yok");
+        }
+
+    }
+
+    // en fazla 2 tane kredi kartı olacağı denetleniyor
+    public void addCreditcar(CreditCard eklencekcreditCard) {
+        if (creditCards.size() < 2) {
+            creditCards.add(eklencekcreditCard);
+        } else {
+            System.out.println("en fazla  2 tane kredi kartı ekleyebilirsiniz");
+        }
+    }
+
+    public void showBankAccount() {
+        int sayaç = 1;
+        for (Account account : bankAccounts) {
+            System.out.println(sayaç + " " + account.toString());
+            sayaç++;
+        }
+    }
+
+    public void showCredicard() {
+        int sayac = 1;
+        for (CreditCard creditCardtemp : creditCards) {
+            System.out.println(sayac + " " + creditCardtemp.toString());
             sayac++;
         }
     }
+
     // gelen indexe göre hesap döndürülüyor
-    public Account getAccount(int index)
-    {
-        Account account=bankaccounts.get(index);
+    public Account getAccount(int index) {
+        Account account = bankAccounts.get(index);
         return account;
     }
-
 
 
 }
